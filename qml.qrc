@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Resources/StopWatch.qml</file>
+        <file>Resources/qmldir</file>
+    </qresource>
+</RCC>
