@@ -19,10 +19,8 @@ QString StopWatch::getTime()
     return m_time;
 }
 
-
 void StopWatch::update()
 {
-    emit timeChanged();
     last_time=QTime::currentTime();
     if(check_stop){
         _milliseconds=last_time.msecsSinceStartOfDay()-current_time.msecsSinceStartOfDay()+_milliseconds_stop;
@@ -32,6 +30,7 @@ void StopWatch::update()
         _milliseconds=last_time.msecsSinceStartOfDay()-current_time.msecsSinceStartOfDay();
         m_time=QTime::fromMSecsSinceStartOfDay(_milliseconds).toString("mm:ss:zzz");
     }
+    emit timeChanged();
 }
 
 // pressing resets the timer if he is active
@@ -62,6 +61,6 @@ void StopWatch::on_stop_button_clicked()
         last_time.setHMS(0,0,0);
         _milliseconds_stop=0;
         m_time=QTime::fromMSecsSinceStartOfDay(0).toString("mm:ss:zzz");
-        emit timeChanged();
+        emit timeChanged();       
     }
 }

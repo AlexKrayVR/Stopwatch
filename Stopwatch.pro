@@ -1,5 +1,5 @@
 QT += quick
-
+QT += quickwidgets
 CONFIG += c++11
 android {
 QMAKE_LFLAGS += -nostdlib++
@@ -8,6 +8,7 @@ QMAKE_LFLAGS += -nostdlib++
 DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
+        circle.cpp \
         main.cpp \
         stopwatch.cpp
 
@@ -25,4 +26,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES +=
 
 HEADERS += \
+    circle.h \
     stopwatch.h

@@ -9,6 +9,7 @@ class StopWatch : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString time READ getTime NOTIFY timeChanged)
+
 public:
     StopWatch(QObject *parent = nullptr);
     ~StopWatch();
@@ -18,8 +19,12 @@ public:
 
     QString getTime();
 
+
+
+
 signals:
     void timeChanged();
+    void millisecondQMLChanged();
 
 private slots:
     void update();
