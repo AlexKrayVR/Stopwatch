@@ -19,9 +19,6 @@ public:
 
     QString getTime();
 
-
-
-
 signals:
     void timeChanged();
     void millisecondQMLChanged();

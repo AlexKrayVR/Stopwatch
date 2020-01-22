@@ -11,12 +11,8 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
-
      qmlRegisterType<StopWatch>("StopWatch", 1, 0, "StopWatch");
      qmlRegisterType<Circle>("Circle", 1, 0, "Circle");
-
-
-
 
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,

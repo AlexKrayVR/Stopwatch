@@ -131,8 +131,8 @@ Rectangle {
     Text {
         id:textStopWatch
         anchors.centerIn: parent
-        width: 330
-        height: 100
+        width: parent.width-30
+        height: parent.height/6
         text: stopWatch.time
         fontSizeMode: Text.Fit
         font.weight: Font.DemiBold

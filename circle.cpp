@@ -8,24 +8,27 @@ Circle::Circle(QQuickItem *parent) : QQuickPaintedItem(parent), m_angle(0)
 
 void Circle::paint(QPainter *painter)
 {
-        QColor inner("#4d5254");
-        QColor border("#e2574c");
+    painter->setPen(Qt::NoPen);
+    painter->setRenderHints(QPainter::Antialiasing, true);
 
-        QBrush  brush(inner);
-        QBrush  brushActive(border);
-        QBrush  brushNonActive(inner);
+    //base color
+    QColor base("#4d5254");
+    QBrush  brushBase(base);
 
-        painter->setPen(Qt::NoPen);
-        painter->setRenderHints(QPainter::Antialiasing, true);
+    //moving stroke color
+    QColor stroke("#e2574c");
+    QBrush  brushStroke(stroke);
 
-        painter->setBrush(brushNonActive);
-        painter->drawEllipse(boundingRect().adjusted(1,1,-1,-1));
+    //static stroke color
+    //QBrush  brushStrokeStatic(Qt::green);
+    //painter->setBrush(brushStrokeStatic);
+    //painter->drawEllipse(boundingRect().adjusted(1,1,-1,-1));
 
-        painter->setBrush(brushActive);
-        painter->drawPie(boundingRect().adjusted(1,1,-1,-1), 90*16,m_angle*16);
+    painter->setBrush(brushStroke);
+    painter->drawPie(boundingRect().adjusted(1,1,-1,-1), 90*16,m_angle*16);
 
-        painter->setBrush(brush);
-        painter->drawEllipse(boundingRect().adjusted(10,10,-10,-10));
+    painter->setBrush(brushBase);
+    painter->drawEllipse(boundingRect().adjusted(10,10,-10,-10));
 }
 
 double Circle::getAngle() const
